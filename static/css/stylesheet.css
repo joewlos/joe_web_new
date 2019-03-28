@@ -45,7 +45,7 @@ iframe {
 	width: 75%;
 }
 .spread-row {
-	padding-top: 1em;
+	padding-top: 2em;
 	width: 75%;
 }
 .vertical-center {
@@ -64,6 +64,16 @@ iframe {
 }
 .btn-line {
 	line-height: 3em;
+}
+
+/* Index on Mobile */
+@media (max-width: 768px) {
+	.push-fa-up-joe {
+		visibility: hidden;
+	}
+	.index-content {
+		height: auto;
+	}
 }
 
 /* Hide */
@@ -99,9 +109,9 @@ iframe {
 	color: rgba(0,0,0);
 }
 .link-fa-joe {
-	color: rgba(0,0,0);
+	color: rgba(0,0,0) !important;
 }
 .link-fa-joe:hover {
-	color: rgba(0,0,0,0.5);
-	text-decoration: none;
+	color: rgba(0,0,0,0.5) !important;
+	text-decoration: none !important;
 }

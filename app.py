@@ -67,8 +67,11 @@ DYNAMIC VIEWS
 # Use the info JSON to populate the pages
 @app.route('/<section>/<key>', methods=['GET'])
 def page(section, key):
+
+	# Render the template with data and title
 	data = info[section]['pages'][key]
-	return render_template('page.html', data=data)
+	title = data['page_name']
+	return render_template('page.html', data=data, title=title)
 
 
 '''
@@ -92,6 +95,6 @@ if __name__ == '__main__':
 
 	# Check if Heroku in environ before running
 	if 'ON_HEROKU' not in os.environ:
-		app.run(extra_files=extra_files)
+		app.run(extra_files=extra_files, debug=True)
 	else:
 		app.run()  # On Heroku
