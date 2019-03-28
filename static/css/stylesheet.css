@@ -74,6 +74,38 @@ iframe {
 	.index-content {
 		height: auto;
 	}
+	.spread-column {
+		padding-bottom: 1em;
+	}
+}
+
+/* Internal Page */
+.title-div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 30%;
+}
+.title-row {
+	width: 90%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.title-img {
+	height: 10em;
+	width: auto;
+}
+.internal-cont {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.internal-text {
+	width: 85%;
 }
 
 /* Hide */
@@ -99,17 +131,17 @@ iframe {
 	color: rgba(0,0,0,0.3);
 }
 .push-fa-down-joe:hover {
-	color: rgba(0,0,0);
+	color: black;
 }
 .push-fa-up-joe {
 	padding-bottom: 1em;
 	color: rgba(0,0,0,0.5);
 }
 .push-fa-up-joe:hover {
-	color: rgba(0,0,0);
+	color: black;
 }
 .link-fa-joe {
-	color: rgba(0,0,0) !important;
+	color: black !important;
 }
 .link-fa-joe:hover {
 	color: rgba(0,0,0,0.5) !important;

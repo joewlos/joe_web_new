@@ -8,8 +8,10 @@
 			},
 			"iowa_bridge": {
 				"page_name": "Choropleth Map",
-				"title": "Department of Transportation NBI Choropleth Map Visualization",
-				"subtitle": "Visualizing Structurally Deficient Bridges and Tunnels in Iowa"
+				"title": "Department of Transportation NBI Choropleth Map",
+				"subtitle": "Visualizing Structurally Deficient Bridges and Tunnels in Iowa",
+				"title_image": "nbi_output.png",
+				"text": "choropleth.html"
 			},
 			"property_assessment": {
 				"page_name": "Property Assessment",
@@ -18,8 +20,9 @@
 			},
 			"presevent": {
 				"page_name": "Presevent",
-				"title": "Presevent",
-				"subtitle": "Scraping Election 2016 Presidential Candidate Event Data for an iOS Application"
+				"title": "Presevent iOS App",
+				"subtitle": "Scraping Election 2016 Presidential Candidate Event Data",
+				"title_image": "presevent.png"
 			}
 		}
 	},

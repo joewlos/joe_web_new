@@ -1,0 +1,133 @@
+<p>A friend from Grinnell College, <a href="https://www.linkedin.com/in/arfrerick/" target="_blank">Austin Frerick</a>, asked for visualizations of Department of Transportation data for his home state, Iowa, where <a href="http://whotv.com/2017/02/15/iowa-leads-the-nation-in-bad-bridges/" target="_blank">over 55,000</a> bridges or tunnels are in bad condition.</p>
+<p>Iowa's NBI data is available at <a href="https://www.fhwa.dot.gov/bridge/nbi/2016/IA16.txt" target="_blank">this link</a>, and with a bit of manipulation, the text file can be visualized as a <a href="https://en.wikipedia.org/wiki/Choropleth_map" target="_blank">choropleth map</a> or statistical thematic map.</p>
+<p>This page walks through the Python code necessary to get your own simple choropleth map visualizations up and running.</p>
+<h5>1. NBI Data Manipulation</h5>
+<p>The initial text file from the Department of Transportation includes information about every bridge and tunnel in Iowa, but for the purposes of this walk-through, we're only interested in bridges and tunnels in poor condition. The Federal Highway Administration lists <a href="https://www.fhwa.dot.gov/bridge/0650dsup.cfm" target="_blank">two criteria</a> for determining "structural deficiency."</p>
+<ol>
+	<li>A condition rating of 4 or less for one of the following:
+		<ul>
+			<li>Item 58 - Deck</li>
+			<li>Item 59 - Superstructures</li>
+			<li>Item 60 - Substructures</li>
+			<li>Item 62 - Culvert and Retaining Walls</li>
+		</ul>
+	</li>
+	<li>Or an appraisal rating of 2 or less for one of the following:
+		<ul>
+			<li>Item 67 - Structural Condition</li>
+			<li>Item 71 - Waterway Adequacy</li>
+		</ul>
+	</li>
+</ol>
+<p>We need to read the flat file with Python's data analysis toolkit <a href="http://pandas.pydata.org/pandas-docs/stable/install.html" target="_blank">Pandas</a> and locate the structurally deficient bridges and tunnels.</p>
+<pre><code>
+import pandas as pd
+df = pd.read_csv('IA16.txt')
+df = df.loc[(df['DECK_COND_058'] <= 4) | (df['SUPERSTRUCTURE_COND_059'] <= 4) | 
+	(df['SUBSTRUCTURE_COND_060'] <= 4) | (df['CULVERT_COND_062'] <= 4) | 
+	(df['STRUCTURAL_EVAL_067'] <= 2) | (df['WATERWAY_EVAL_071'] <= 2)]
+</code></pre>
+<br>
+<p>Additionally, we need to add a new column to the Pandas dataframe, concatenating the state and county codes for a full, five-digit county identifier. Pandas originally read the state and county codes as integers, so we will convert them to strings and use zfill to pad the county code.</p>
+<pre><code>
+df['STATE_CODE_001'] = df['STATE_CODE_001'].astype(str)
+df['COUNTY_CODE_003'] = df['COUNTY_CODE_003'].astype(str)
+df['COUNTY_CODE_003'] = df['COUNTY_CODE_003'].map(lambda x: x.zfill(3))
+df['FULL_COUNTY_CODE'] = df['STATE_CODE_001'] + df['COUNTY_CODE_003']
+</code></pre>
+<br>
+<p>For this visualization, we only need to count the number of structurally deficient bridges and tunnels in each county. Grouping the dataframe by the county identifier column will create a Pandas series of the sums, indexed by the county identifier.</p>
+<pre><code>
+size_series = df.groupby(['FULL_COUNTY_CODE']).size()
+</code></pre>
+<br>
+<h5>2. Visualizing the NBI Data as a Vector Image</h5>
+<p>Now, we're ready to visualize the data as a vector image, using <a href="http://flowingdata.com/2009/11/12/how-to-make-a-us-county-thematic-map-using-free-tools/" target="_blank">this FlowingData tutorial</a> as a guide. <a href="https://en.wikipedia.org/wiki/File:USA_Counties.svg" target="_blank">This map</a> of the United States is a good starting point, because its five-digit county identifiers are accessible through the Python package <a href="https://www.crummy.com/software/BeautifulSoup/" target="_blank">BeautifulSoup</a>.</p>
+<p>Let's open the SVG with BeautifulSoup and set up a list of colors to highlight different counties. Counties with the least structurally deficient bridges and tunnels will be white, and counties with the most structurally deficient bridges and tunnels will be dark pink.</p>
+<pre><code>
+from bs4 import BeautifulSoup
+
+svg = open('counties.svg', 'r').read()
+soup = BeautifulSoup(svg, selfClosingTags=['defs','sodipodi:namedview'])
+paths = soup.findAll('path')
+colors = ['#F1EEF6', '#D4B9DA', '#C994C7', '#DF65B0', '#DD1C77']
+</code></pre>
+<br>
+<p>As we iterate through each path, we'll check to see if the path's id is in Iowa. If it is not in Iowa, we'll remove the path from the vector image. If it is in Iowa, we'll check to see if the five-digit county code is in our Pandas series, and we'll edit the fill color.</p>
+<pre><code>
+for path in paths:
+	# If the path id is in Iowa
+	if path['id'][0:2] == '19':
+
+		# Find the index for the fill color
+		s = path['style'].find('fill:') + 5
+		e = s + 7
+
+		# If the path id is in the series index
+		if path['id'] in list(size_series.index):
+
+			# Convert value to pct rank
+			size_rank = size_series.rank(pct=True)[path['id']]
+
+			# Choose color based on pct rank
+			if size_rank >= 0.8:
+				color = colors[4]
+			elif 0.6 <= size_rank < 0.8:
+				color = colors[3]
+			elif 0.4 <= size_rank < 0.6:
+				color = colors[2]
+			elif 0.2 <= size_rank < 0.4:
+				color = colors[1]
+			else:
+				color = colors[0]
+			
+		# Otherwise, fill with the base
+		else:
+			color = colors[0]
+
+		# Edit the fill color of the bs4 path
+		path['style'] = path['style'][:s] + color + path['style'][e:]
+
+	# If the path is not in Iowa, delete it
+	else:
+		path.decompose()
+</code></pre>
+<br>
+<p>After saving the vector image, we'll have a rescalable visualization of the Iowa bridge and tunnel data.</p>
+<img src="{{ url_for('static', filename='images/nbi_output.png') }}" alt="NBI Iowa Visualization" style="width:100%;height:auto;">
+<br>
+<h5>3. Visualizing the NBI Data with Folium</h5>
+<p>While this vector image is useful for physical publications, it's not interactive. We can use the Python library <a href="https://github.com/python-visualization/folium" target="_blank">Folium</a> to visualize the data on an OpenStreetMap.</p>
+<p>First, we will convert the Pandas series of NBI data into a Pandas dataframe with columns for the five-digit county identifier and the counts of structurally deficient bridges and tunnels. Then we will provide a path to a JSON file of Iowa counties for Folium. Each five-digit county identifier must exist in the new Pandas dataframe, so we'll append any missing identifiers.</p>
+<pre><code>
+df = pd.DataFrame({'GEO_ID':size_series.index, 'NBI':size_series.values})
+
+import json
+
+counties_geo = r'iowa_counties.json'
+with open(counties_geo) as data_file:
+	counties_data = json.load(data_file)
+
+# Add each id to the df
+for record in counties_data['features']:
+	if record['id'] not in df['GEO_ID'].tolist():
+		df = df.append({'GEO_ID':record['id'], 'NBI':0},
+			ignore_index=True)
+</code></pre>
+<br>
+<p>Finally, we'll import Folium and initialize a map object, centered on Iowa's longitude and lattitude. Folium will overlay the contents of our dataframe columns on a Leaflet.js map.</p>
+<pre><code>
+import folium
+
+map1 = folium.Map(location=[41.87, -93.09], zoom_start=7)
+map1.choropleth(geo_path=counties_geo, data_out='data3.json', data=df,
+	columns=['GEO_ID', 'NBI'],
+	key_on='feature.id',
+	fill_color='PuRd', line_opacity=0.3,
+	legend_name='Structurally Deficient Bridges and Tunnels in Iowa'
+)
+map1.save('iowa_nbi_map.html')
+</code></pre>
+<br>
+<p>The saved file contains the HTML and JavaScript you'll need to copy the map into your own website within an inline frame.</p>
+<iframe src="{{ url_for('static', filename='images/nbi_map.html' ) }}" frameBorder="0" style="width:80%;"></iframe>

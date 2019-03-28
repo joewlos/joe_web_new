@@ -2,15 +2,37 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- External Content -->
 {% if "iframe" in data %}
+<!-- External Content -->
 	<div class="external-content">
 		<iframe src="{{ data['iframe'] }}" frameborder="0"></iframe>
 	</div>
 
 {% else %}
+<!-- Internal Content -->
 	<div class="internal-content">
 
+		<!-- Title Section -->
+		<div class="title-div">
+			<div class="row title-row text-center">
+				<div class="col-md-8 spread-column">
+					<h2>{{ data["title"] }}</h2>
+					<i><h4>{{ data["subtitle"] }}</h4></i>
+				</div>
+				<div class="col-md-4">
+					<img class="title-img" src="{{ url_for('static', filename='images/' + data['title_image'] ) }}"></img>
+				</div>
+			</div>
+		</div>
+
+		<!-- Text for Project -->
+		{% if "text" in data %}
+			<div class="internal-cont">
+				<div class="internal-text text-justify">
+					{% include data["text"] %}
+				</div>
+			</div>
+		{% endif %}
 	</div>
 
 <!-- End Block -->

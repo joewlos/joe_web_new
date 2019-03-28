@@ -68,10 +68,11 @@ DYNAMIC VIEWS
 @app.route('/<section>/<key>', methods=['GET'])
 def page(section, key):
 
-	# Render the template with data and title
+	# Render the template with data, title, and img
 	data = info[section]['pages'][key]
 	title = data['page_name']
-	return render_template('page.html', data=data, title=title)
+	return render_template('page.html', 
+		data=data, title=title)
 
 
 '''
