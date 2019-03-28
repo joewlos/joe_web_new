@@ -1,4 +1,4 @@
-<p>A friend from Grinnell College, <a href="https://www.linkedin.com/in/arfrerick/" target="_blank">Austin Frerick</a>, asked for visualizations of Department of Transportation data for his home state, Iowa, where <a href="http://whotv.com/2017/02/15/iowa-leads-the-nation-in-bad-bridges/" target="_blank">over 55,000</a> bridges or tunnels are in bad condition.</p>
+<p>A friend from Grinnell College and recent candidate for Congress, <a href="https://www.linkedin.com/in/arfrerick/" target="_blank">Austin Frerick</a>, asked for visualizations of Department of Transportation data for his home state, Iowa, where <a href="http://whotv.com/2017/02/15/iowa-leads-the-nation-in-bad-bridges/" target="_blank">over 55,000</a> bridges or tunnels are in bad condition.</p>
 <p>Iowa's NBI data is available at <a href="https://www.fhwa.dot.gov/bridge/nbi/2016/IA16.txt" target="_blank">this link</a>, and with a bit of manipulation, the text file can be visualized as a <a href="https://en.wikipedia.org/wiki/Choropleth_map" target="_blank">choropleth map</a> or statistical thematic map.</p>
 <p>This page walks through the Python code necessary to get your own simple choropleth map visualizations up and running.</p>
 <h5>1. NBI Data Manipulation</h5>
@@ -94,7 +94,9 @@ for path in paths:
 </code></pre>
 <br>
 <p>After saving the vector image, we'll have a rescalable visualization of the Iowa bridge and tunnel data.</p>
-<img src="{{ url_for('static', filename='images/nbi_output.png') }}" alt="NBI Iowa Visualization" style="width:100%;height:auto;">
+<div class="text-center">
+	<img src="{{ url_for('static', filename='images/nbi_output.png') }}" alt="NBI Iowa Visualization" style="width:50%;height:auto;">
+</div>
 <br>
 <br>
 <h5>3. Visualizing the NBI Data with Folium</h5>

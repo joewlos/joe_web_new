@@ -9,38 +9,66 @@
 	</div>
 
 {% else %}
-<!-- Internal Content -->
-	<div class="internal-content">
 
-		<!-- Title Section -->
-		<div class="title-div">
-			<div class="row title-row text-center">
+
+{% if "full_page" in data %}
+<!-- Internal Content Full Page -->
+
+	<!-- Title Section -->
+	<div class="internal-content">
+		<div class="full-page-div">
+			<div class="row full-page-row text-center">
 				<div class="col-md-8 spread-column">
 					<h2>{{ data["title"] }}</h2>
-					<i><h4>{{ data["subtitle"] }}</h4></i>
+					<h4>{{ data["subtitle"] }}</h4>
 				</div>
 				<div class="col-md-4">
-					<img class="title-img" src="{{ url_for('static', filename='images/' + data['title_image'] ) }}"></img>
+					<img class="full-page-img" src="{{ url_for('static', filename='images/' + data['title_image'] ) }}"></img>
 				</div>
 			</div>
 		</div>
 
 		{% if "text" in data %}
 			<!-- Text for Project -->
-			<div class="internal-cont">
-				<div class="internal-text text-left">
+			<div class="full-page-container">
+				<div class="full-page-text text-left">
 					{% include data["text"] %}
 				</div>
 			</div>
 		{% endif %}
-
-		{% if "project_link" in data %}
-			<!-- Project Link -->
-			<div class="text-center project-btn">
-				<a href="{{ data['project_link'] }}" target="_blank"><button class="btn btn-outline-dark">{{ data["project_name"] }}</button></a>
-			</div>
-		{% endif %}
 	</div>
+
+{% else %}
+<!-- Small Page for Featured Project -->
+	
+	<!-- Center the content in the screen -->
+	<div class="internal-tab">
+		<div class="index-content">
+			<div class="interior">
+				<div class="row text-center pad-title">
+					<h2>{{ data["title"] }}</h2>
+				</div>
+				<div class="row pad-title">
+					<div class="col-md-4 vertical-center spread-column">
+						<img class="index-img" src="{{ url_for('static', filename='images/' + data['title_image']) }}"></img>
+					</div>
+					<div class="col-md-8 vertical-center text-center">
+						<h4>{{ data["subtitle"] }}</h4>
+						{% include data["text"] %}
+					</div>
+				</div>
+
+				<!-- Button to Content -->
+				<div class="row text-center pad-title">
+					<div class="col-md-12">
+						<a href="{{ data['project_link'] }}" target="_blank"><button class="btn btn-outline-dark">{{ data["project_name"]|safe }}</button></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+
 
 <!-- End Block -->
 {% endif %}

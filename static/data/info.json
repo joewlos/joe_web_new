@@ -7,22 +7,21 @@
 				"iframe": "https://il-income-tax-site.herokuapp.com/"
 			},
 			"iowa_bridge": {
-				"page_name": "Choropleth Map",
+				"page_name": "NBI Choropleth Map",
 				"title": "Department of Transportation NBI Choropleth Map",
 				"subtitle": "Visualizing Structurally Deficient Bridges and Tunnels in Iowa",
 				"title_image": "nbi_output.png",
-				"text": "choropleth.html"
-			},
-			"property_assessment": {
-				"page_name": "Property Assessment",
-				"title": "Cook County Property Assessment Data",
-				"subtitle": "Programatically Locating Properties Paying Excessive Property Taxes"
+				"text": "choropleth.html",
+				"full_page": true
 			},
 			"presevent": {
 				"page_name": "Presevent",
-				"title": "Presevent iOS App",
+				"title": "Presevent Election 2016 iOS App",
 				"subtitle": "Scraping Election 2016 Presidential Candidate Event Data",
-				"title_image": "presevent.png"
+				"title_image": "presevent.jpg",
+				"text": "presevent.html",
+				"project_link": "http://presevent.com/",
+				"project_name": "Presevent Website"
 			}
 		}
 	},
@@ -31,31 +30,30 @@
 		"pages": {
 			"baumann_prize": {
 				"page_name": "Net Neutrality",
-				"title": "Uncommon Carriers - 2015 Baumann Essay Prize",
-				"subtitle": "The Effective Regulation of Net Neutrality",
+				"title": "\"Uncommon Carriers\" Essay",
+				"subtitle": "The Effective Regulation of Net Neutrality in a Historical Context",
 				"title_image": "scotus.jpg",
 				"text": "uncommon.html",
 				"project_link": "https://medium.com/@joewlos/uncommon-carriers-the-effective-regulation-of-net-neutrality-4c090059adae",
-				"project_name": "Uncommon Carriers on Medium"
+				"project_name": "\"Uncommon Carriers\" on Medium"
 			},
 			"habeas_thesis": {
 				"page_name": "Habeas Corpus",
-				"title": "The Great Writ Wronged",
-				"subtitle": "2013 Mentored Advanced Project Examining the Legal Protection Habeas Corpus",
-				"title_image": "",
+				"title": "\"The Great Writ Wronged\" Thesis",
+				"subtitle": "The Legal Protection Habeas Corpus and the War on Terror",
+				"title_image": "habeas.png",
 				"text": "habeas.html",
-				"project_link": "",
-				"project_name": "Great Writ Wronged PowerPoint"
+				"project_link": "https://drive.google.com/file/d/1EedxrTu6F1XqDL5UawU8dnxlvceAWSBJ/view?usp=sharing",
+				"project_name": "\"The Great Writ Wronged\" PowerPoint"
 			},
 			"gum": {
 				"page_name": "Grinnell Student Analytics",
-				"title": null,
-				"subtitle": null
-			},
-			"scholastic": {
-				"page_name": "Scholastic Kids Press Corps",
-				"title": null,
-				"subtitle": null
+				"title": "\"Self-Gov Isn't Dead\" Magazine Article",
+				"subtitle": "Polling Grinnell College Students on the Campus Culture",
+				"title_image": "gsa.png",
+				"text": "analytics.html",
+				"project_link": "https://drive.google.com/open?id=0B-fkMTbAfbS0dnBaejZadTFCVkU&disco=AAAACv4ZQoY",
+				"project_name": "<i>GUM</i> Spring 2014 Edition"
 			}
 		}
 	}
