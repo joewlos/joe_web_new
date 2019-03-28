@@ -96,6 +96,7 @@ for path in paths:
 <p>After saving the vector image, we'll have a rescalable visualization of the Iowa bridge and tunnel data.</p>
 <img src="{{ url_for('static', filename='images/nbi_output.png') }}" alt="NBI Iowa Visualization" style="width:100%;height:auto;">
 <br>
+<br>
 <h5>3. Visualizing the NBI Data with Folium</h5>
 <p>While this vector image is useful for physical publications, it's not interactive. We can use the Python library <a href="https://github.com/python-visualization/folium" target="_blank">Folium</a> to visualize the data on an OpenStreetMap.</p>
 <p>First, we will convert the Pandas series of NBI data into a Pandas dataframe with columns for the five-digit county identifier and the counts of structurally deficient bridges and tunnels. Then we will provide a path to a JSON file of Iowa counties for Folium. Each five-digit county identifier must exist in the new Pandas dataframe, so we'll append any missing identifiers.</p>

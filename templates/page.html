@@ -25,12 +25,19 @@
 			</div>
 		</div>
 
-		<!-- Text for Project -->
 		{% if "text" in data %}
+			<!-- Text for Project -->
 			<div class="internal-cont">
-				<div class="internal-text text-justify">
+				<div class="internal-text text-left">
 					{% include data["text"] %}
 				</div>
+			</div>
+		{% endif %}
+
+		{% if "project_link" in data %}
+			<!-- Project Link -->
+			<div class="text-center project-btn">
+				<a href="{{ data['project_link'] }}" target="_blank"><button class="btn btn-outline-dark">{{ data["project_name"] }}</button></a>
 			</div>
 		{% endif %}
 	</div>

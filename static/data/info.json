@@ -32,12 +32,20 @@
 			"baumann_prize": {
 				"page_name": "Net Neutrality",
 				"title": "Uncommon Carriers - 2015 Baumann Essay Prize",
-				"subtitle": "The Historical Development of Common Carriers"
+				"subtitle": "The Effective Regulation of Net Neutrality",
+				"title_image": "scotus.jpg",
+				"text": "uncommon.html",
+				"project_link": "https://medium.com/@joewlos/uncommon-carriers-the-effective-regulation-of-net-neutrality-4c090059adae",
+				"project_name": "Uncommon Carriers on Medium"
 			},
 			"habeas_thesis": {
 				"page_name": "Habeas Corpus",
 				"title": "The Great Writ Wronged",
-				"subtitle": "2013 Mentored Advanced Project Examining the Legal Protection Habeas Corpus"
+				"subtitle": "2013 Mentored Advanced Project Examining the Legal Protection Habeas Corpus",
+				"title_image": "",
+				"text": "habeas.html",
+				"project_link": "",
+				"project_name": "Great Writ Wronged PowerPoint"
 			},
 			"gum": {
 				"page_name": "Grinnell Student Analytics",

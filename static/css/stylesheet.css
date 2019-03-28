@@ -28,7 +28,6 @@ iframe {
 	padding-top: 56px;
 }
 
-
 /* Index Content Scrolls */
 .index-content {
 	display: flex;
@@ -106,6 +105,9 @@ iframe {
 }
 .internal-text {
 	width: 85%;
+}
+.project-btn {
+	padding-top: 1em;
 }
 
 /* Hide */
