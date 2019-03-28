@@ -62,6 +62,9 @@ iframe {
 	object-fit: cover;
 	margin: 1em;
 }
+.btn-line {
+	line-height: 3em;
+}
 
 /* Hide */
 .hidden {
