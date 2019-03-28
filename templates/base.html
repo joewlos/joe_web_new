@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<!-- Header -->
+	<head>
+		{% block head %}
+			<!-- Page Title -->
+			<title>Joe Wlos - {{ title }}</title>
+			<!-- Favicon -->
+			<link rel="icon" href="{{ url_for('static', filename='images/home.ico') }}">
+			<!-- Meta -->
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<!-- Bootstrap 4 - CSS -->
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+			<!-- FontAwesome CSS -->
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+			<!-- Google Font -->
+			<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+			<!-- Custom CSS -->
+			<link rel= "stylesheet" type="text/css" href="{{ url_for('static', filename='css/stylesheet.css') }}">
+			<!-- JQuery -->
+			<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+			<!-- Popper -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<!-- Bootstrap 4 - JS -->
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		{% endblock %}
+	</head>
+
+	<!-- Navbar -->
+	<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
+
+		<!-- Home -->
+		<a class="navbar-brand" href="/">
+			<i class="fas fa-home"></i> &nbsp; Joe Wlos
+		</a>
+
+		<!-- Collapse -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<i class="fas fa-bars"></i>
+		</button>
+
+		<!-- Main Links -->
+		<div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+			<ul class="navbar-nav mr-auto">
+
+				<!-- Project Iteration -->
+				{% for k,v in info.items() %}
+					<li class="nav-item dropdown">
+						<a class="nav-link-joe nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="{{ k }}">
+							{{ v["section_name"] }}
+						</a>
+						<div class="dropdown-menu" aria-labelledby="{{ k }}">
+							{% for x,y in v["pages"].items() %}
+								<a class="dropdown-item" href="{{ url_for('page', section=k, key=x) }}">{{ y["page_name"] }}</a>
+							{% endfor %}
+						</div>
+					</li>
+
+				<!-- End Iteration -->
+				{% endfor %}
+			</ul>
+		</div>
+
+		<!-- Resume and Social Links -->
+		<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+						<a href="{{ url_for('resume') }}" target="_blank"><i class="fas fa-file-pdf nav-fa-joe"></i></a>
+						&nbsp;
+						<a href="https://www.linkedin.com/in/joewlos/" target="_blank"><i class="fab fa-linkedin nav-fa-joe"></i></a>
+						&nbsp;
+						<a href="https://github.com/joewlos" target="_blank"><i class="fab fa-github-square nav-fa-joe"></i></a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Body -->
+	<body>
+		{% block content %}
+		{% endblock %}
+	</body>
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-43821812-2', 'auto');
+		ga('send', 'pageview');
+	</script>
+
+<!--  
+Copyright (c) [2019] [Joe Wlos]  
+-->
+</html>

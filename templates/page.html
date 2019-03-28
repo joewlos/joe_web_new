@@ -1,0 +1,18 @@
+<!-- Begin Content -->
+{% extends "base.html" %}
+{% block content %}
+
+<!-- External Content -->
+{% if "iframe" in data %}
+	<div class="external-content">
+		<iframe src="{{ data['iframe'] }}" frameborder="0"></iframe>
+	</div>
+
+{% else %}
+	<div class="internal-content">
+
+	</div>
+
+<!-- End Block -->
+{% endif %}
+{% endblock %}

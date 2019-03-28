@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Main Section -->
+<div class="index-content" id="section-1">
+	<div class="interior">
+		<a href="#" class="hidden">
+			<i class="fas fa-arrow-up fa-4x push-fa-up-joe"></i>
+		</a>
+		<div class="row">
+			<div class="col-md-4 vertical-center">
+				<img class="index-img" src="{{ url_for('static', filename='images/aqua.png') }}"></img>
+			</div>
+			<div class="col-md-8 vertical-center text-center">
+				<h2>Welcome : )</h2>
+				<h4>I'm a data nerd and news junkie, interested in housing policy, the intersection of politics and technology, and financial markets.</h4>
+			</div>
+		</div>
+		<a href="#section-2">
+			<i class="fas fa-arrow-down fa-4x push-fa-down-joe"></i>
+		</a>
+	</div>
+</div>
+
+<!-- Second Section -->
+<div class="index-content" id="section-2">
+	<div class="interior">
+		<a href="#section-1">
+			<i class="fas fa-arrow-up fa-4x push-fa-up-joe"></i>
+		</a>
+		<div class="row">
+			<div class="col-md-8 vertical-center text-center">
+				<h2>My Projects</h2>
+				<h4>This should be a sentence about my data and my writing, but I don't know what the sentence should be yet.</h4>
+			</div>
+			<div class="col-md-4 vertical-center">
+				<h2>Image</h2>
+			</div>
+		</div>
+		<a href="#section-3">
+			<i class="fas fa-arrow-down fa-4x push-fa-down-joe"></i>
+		</a>
+	</div>
+</div>
+
+<!-- Third Section -->
+<div class="index-content" id="section-3">
+	<div class="interior">
+		<a href="#section-2">
+			<i class="fas fa-arrow-up fa-4x push-fa-up-joe"></i>
+		</a>
+		<div class="row">
+			<div class="col-md-4 vertical-center">
+				<img class="index-img" src="{{ url_for('static', filename='images/headshot.jpg') }}"></img>
+			</div>
+			<div class="col-md-8 vertical-center text-center">
+				<h2>My Career</h2>
+				<h4>I worked as a data analyst for a <a href="https://www.morningstar.com/company/about-us" target="_blank" class="index-link">financial company</a> and <a href="https://jooraccess.com/about" target="_blank" class="index-link">startup</a>, and I am currently an associate at <a href="https://www.dwightsecurities.com" target="_blank" class="index-link">Dwight Securities</a>, a fixed income fund.</h4>
+			</div>
+		</div>
+		<a href="#section-4">
+			<i class="fas fa-arrow-down fa-4x push-fa-down-joe"></i>
+		</a>
+	</div>
+</div>
+
+<!-- Contact Section -->
+<div class="index-content" id="section-4">
+	<div class="interior">
+		<a href="#section-3">
+			<i class="fas fa-arrow-up fa-4x push-fa-up-joe"></i>
+		</a>
+		<div class="row text-center">
+			<h4>Let's Build a Better World</h4>
+		</div>
+		<div class="row spread-row text-center">
+			<div class="col-md-4">
+				<a href="{{ url_for('resume') }}" target="_blank" class="link-fa-joe">
+					<i class="fas fa-file-pdf fa-4x"></i>
+					<h4>Resume</h4>
+			</div>
+			<div class="col-md-4">
+				<a href="https://www.linkedin.com/in/joewlos/" target="_blank" class="link-fa-joe">
+					<i class="fab fa-linkedin fa-4x"></i>
+					<h4>LinkedIn</h4>
+			</div>
+			<div class="col-md-4">
+				<a href="mailto:joewlos17@gmail.com" class="link-fa-joe">
+					<i class="fas fa-envelope fa-4x"></i>
+					<h4>Email</h4>
+				</a>
+			</div>
+		</div>
+		<a href="#" class="hidden">
+			<i class="fas fa-arrow-down fa-4x push-fa-down-joe"></i>
+		</a>
+	</div>
+</div>
+{% endblock %}

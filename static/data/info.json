@@ -1,0 +1,51 @@
+{
+	"data": {
+		"section_name": "Data",
+		"pages": {
+			"income_tax": {
+				"page_name": "Income Tax Dash App",
+				"iframe": "https://il-income-tax-site.herokuapp.com/"
+			},
+			"iowa_bridge": {
+				"page_name": "NBI Choropleth Map",
+				"title": "Department of Transportation NBI Choropleth Map Visualization",
+				"subtitle": "Visualizing Structurally Deficient Bridges and Tunnels in Iowa"
+			},
+			"property_assessment": {
+				"page_name": "Cook County Property Assessment",
+				"title": "Cook County Property Assessment Data",
+				"subtitle": "Programatically Locating Properties Paying Excessive Property Taxes"
+			},
+			"presevent": {
+				"page_name": "Presevent - Election 2016",
+				"title": "Presevent",
+				"subtitle": "Scraping Election 2016 Presidential Candidate Event Data for an iOS Application"
+			}
+		}
+	},
+	"writing": {
+		"section_name": "Writing",
+		"pages": {
+			"baumann_prize": {
+				"page_name": "Net Neutrality Research",
+				"title": "Uncommon Carriers - 2015 Baumann Essay Prize",
+				"subtitle": "The Historical Development of Common Carriers"
+			},
+			"habeas_thesis": {
+				"page_name": "Habeas Corpus Thesis",
+				"title": "The Great Writ Wronged",
+				"subtitle": "2013 Mentored Advanced Project Examining the Legal Protection Habeas Corpus"
+			},
+			"gum": {
+				"page_name": "Grinnell Student Analytics",
+				"title": null,
+				"subtitle": null
+			},
+			"scholastic": {
+				"page_name": "Scholastic Kids Press Corps",
+				"title": null,
+				"subtitle": null
+			}
+		}
+	}
+}

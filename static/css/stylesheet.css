@@ -1,0 +1,104 @@
+/* Google Font for All Text */
+html {
+	font-family: "Cabin", Helvetica, sans-serif;
+	height: 100%;
+}
+
+/* Body */
+body {
+	font-family: "Cabin", Helvetica, sans-serif;
+	height: 100%;
+}
+
+/* External Content with NavBar */
+iframe {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	padding-top: 56px;  
+}
+.external-content {
+	height: 100%;
+	width: 100%;
+	background:url(https://i.gifer.com/7plQ.gif) center center no-repeat;
+}
+
+/* Internal Content */
+.internal-content {
+	padding-top: 56px;
+}
+
+
+/* Index Content Scrolls */
+.index-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+.interior {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 75%;
+}
+.spread-row {
+	padding-top: 1em;
+	width: 75%;
+}
+.vertical-center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.index-img {
+	width: 10em;
+	height: 10em;
+	border-radius: 15%;
+	border: 3px solid rgba(0,0,0,.5);
+	object-fit: cover;
+	margin: 1em;
+}
+
+/* Hide */
+.hidden {
+	visibility: hidden;
+}
+
+/* Style the FontAwesome Icons */
+.nav-fa-joe {
+	color: white;
+}
+.nav-fa-joe:hover {
+	color: #999999;
+}
+.nav-link-joe {
+	color: white !important;
+}
+.nav-link-joe:hover {
+	color: #999999 !important;
+}
+.push-fa-down-joe {
+	padding-top: 1em;
+	color: rgba(0,0,0,0.3);
+}
+.push-fa-down-joe:hover {
+	color: rgba(0,0,0);
+}
+.push-fa-up-joe {
+	padding-bottom: 1em;
+	color: rgba(0,0,0,0.5);
+}
+.push-fa-up-joe:hover {
+	color: rgba(0,0,0);
+}
+.link-fa-joe {
+	color: rgba(0,0,0);
+}
+.link-fa-joe:hover {
+	color: rgba(0,0,0,0.5);
+	text-decoration: none;
+}
