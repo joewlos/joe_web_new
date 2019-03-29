@@ -96,6 +96,6 @@ if __name__ == '__main__':
 
 	# Check if Heroku in environ before running
 	if 'ON_HEROKU' not in os.environ:
-		app.run(extra_files=extra_files, debug=True)
+		app.run(extra_files=extra_files)
 	else:
 		app.run()  # On Heroku
