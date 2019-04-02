@@ -1,0 +1,32 @@
+<p>Due to quirks in Cook County's property assessment process, the assessed value of a homeowner's land and buildings is sometimes significantly higher than the assessed values of similar properties in the same neighborhood. This higher assessed value leads to a larger property tax bill for the homeowner.</p>
+<p>To lower assessed values, homeowners can <a href="https://appeals.cookcountyboardofreview.com/" target="_blank">appeal their property assessment</a> to the Cook County Board of Review. In 2014, <a href="http://www.chicagotribune.com/news/local/politics/ct-cook-property-tax-appeals-met-0804-20150803-story.html" target="_blank">over 300,000 property owners</a> completed this appeals process.</p>
+<p>An appeal has a higher chance of success if it lists "comparable properties" with similar characteristics but lower assessed values. While Cook County provides <a href="http://cookviewer1.cookcountyil.gov/jsviewer/mapviewer.html" target="_blank">a tool</a> for finding these comparable properties, its results are sometimes difficult to interpret.</p>
+<p>Using open data from the Cook County <a href="https://datacatalog.cookcountyil.gov/" target="_blank">data catalogue</a> and scraped data from the Cook County <a href="http://www.cookcountyassessor.com/" target="_blank">Assessor's Office</a>, I analyzed properties in Hyde Park, a neighborhood on the south side of the city of Chicago. By comparing the properties' sizes and characteristics, I identified 30 properties that were overassessed by at least $100 in 2016. The results of the analysis are listed below.</p>
+<h5 class="center-title pad-title">Properties in Hyde Park with High Assessments</h5>
+<table class="table">
+	<tbody>
+		{% for k,v in assess.items() %}
+			<tr>
+				<td>
+					<img src="http://www.cookcountyassessor.com/PropertyImage.aspx?pin={{ k }}"></img>
+				</td>
+				<td class="align-middle">
+					<p><b>Property PIN: <a href="http://www.cookcountyassessor.com/Property.aspx?mode=details&pin={{ k }}" target="_blank">{{ k }}</a></b></p>
+					<p>Address: {{ v['property_location'].strip() }}, {{ v['city'].strip() }}, IL</p>
+					<p>2016 Assessed Value: ${{ '{:,}'.format(v['value_2016']) }}</p>
+					<p>Comparable Properties: {{ v['count_match'] }}</p>
+					<p>Average Comparable Property Value: ${{ '{:,}'.format(v['avg_match']) }}</p>
+					<p>Difference: ${{ '{:,}'.format(v['value_2016'] - v['avg_match']) }}</p>
+				</td>
+				<td class="align-middle">
+					<p class="center-title"><b>Comparable Properties</b></p>
+					<ol>
+						{% for z in v['matches'] %}
+							<li><a href="http://www.cookcountyassessor.com/Property.aspx?mode=details&pin={{ z['match_id'] }}" target="_blank">{{ z['match_id'] }}</a> - ${{ '{:,}'.format(z['value_2016']) }}</li>
+						{% endfor %}
+					</ol>
+				</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>

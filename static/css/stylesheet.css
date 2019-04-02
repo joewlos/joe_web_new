@@ -151,3 +151,11 @@ iframe {
 	color: rgba(0,0,0,0.5) !important;
 	text-decoration: none !important;
 }
+
+/* Center title */
+.center-title {
+	text-align: center;
+}
+.pad-title {
+	padding-top: 2em;
+}

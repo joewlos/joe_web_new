@@ -14,6 +14,14 @@
 				"text": "choropleth.html",
 				"full_page": true
 			},
+			"cook_county_assessment": {
+				"page_name": "Property Assessment",
+				"title": "Cook County Property Assessment",
+				"subtitle": "Lack of Uniformity in Assessments Leads to Higher Taxes in Chicago Neighborhoods",
+				"title_image": "chicago_flag.png",
+				"text": "assessment.html",
+				"full_page": true
+			},
 			"presevent": {
 				"page_name": "Presevent",
 				"title": "Presevent Election 2016 iOS App",

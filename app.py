@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 '''
 INITIALIZE
 '''
@@ -15,7 +16,24 @@ import os
 # Initialize app with static folder declared
 app = Flask(__name__, static_folder='static')
 
-# Global variable with the info for the 
+# Configure for db if local or on Heroku
+if 'ON_HEROKU' not in os.environ:
+	from config import Configuration
+	app.config['SQLALCHEMY_DATABASE_URI'] = Configuration.URI
+else:
+	app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+
+# Don't track modifications
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Initialize the db
+from models.shared import db
+db.init_app(app)
+
+# Import the property model
+from models.property import Properties
+
+# Global variable with the info for the pages
 json_path = os.path.join(
 	app.static_folder, 
 	'data', 
@@ -23,6 +41,7 @@ json_path = os.path.join(
 )
 with open(json_path) as f:
 	info = json.load(f)
+
 
 '''
 CONTEXT
@@ -71,8 +90,16 @@ def page(section, key):
 	# Render the template with data, title, and img
 	data = info[section]['pages'][key]
 	title = data['page_name']
+
+	# If this is the property assessment section, get the data
+	assess = None 
+	if key == 'cook_county_assessment':
+		assess = Properties.get_overvalued()
+		from pprint import pprint
+		pprint(assess)
+
 	return render_template('page.html', 
-		data=data, title=title)
+		data=data, title=title, assess=assess)
 
 
 '''
