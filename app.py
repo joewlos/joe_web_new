@@ -79,6 +79,14 @@ def robots():
 	doc_path = os.path.join(app.static_folder, 'documents')
 	return send_from_directory(doc_path, 'robots.txt')
 
+# Serve loading.gif from the static folder
+@app.route('/loading.gif', methods=['GET'])
+def loading_gif():
+
+	# Send the robots file from static folder
+	doc_path = os.path.join(app.static_folder, 'images')
+	return send_from_directory(doc_path, 'loading.gif')
+
 
 '''
 DYNAMIC VIEWS
