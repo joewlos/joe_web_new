@@ -67,7 +67,7 @@ def index():
 @app.route('/joe_wlos_resume.pdf', methods=['GET'])
 def resume():
 
-	# Send the robots file from static folder
+	# Send the file from static folder
 	doc_path = os.path.join(app.static_folder, 'documents')
 	return send_from_directory(doc_path, 'joe_wlos_resume.pdf')
 
@@ -75,7 +75,7 @@ def resume():
 @app.route('/robots.txt', methods=['GET'])
 def robots():
 
-	# Send the robots file from static folder
+	# Send the file from static folder
 	doc_path = os.path.join(app.static_folder, 'documents')
 	return send_from_directory(doc_path, 'robots.txt')
 
@@ -83,7 +83,7 @@ def robots():
 @app.route('/loading.gif', methods=['GET'])
 def loading_gif():
 
-	# Send the robots file from static folder
+	# Send the file from static folder
 	doc_path = os.path.join(app.static_folder, 'images')
 	return send_from_directory(doc_path, 'loading.gif')
 
@@ -99,7 +99,7 @@ def page(section, key):
 	data = info[section]['pages'][key]
 	title = data['page_name']
 
-	# If this is the property assessment section, get the data
+	# If this is the property assessment section, get the data from the model
 	assess = None 
 	if key == 'cook_county_assessment':
 		assess = Properties.get_overvalued()
