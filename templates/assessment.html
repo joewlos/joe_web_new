@@ -13,9 +13,9 @@
 				<td class="align-middle">
 					<p><b>Property PIN: <a href="http://www.cookcountyassessor.com/Property.aspx?mode=details&pin={{ k }}" target="_blank">{{ k }}</a></b></p>
 					<p>Address: {{ v['property_location'].strip() }}, {{ v['city'].strip() }}, IL</p>
-					<p>2016 Assessed Value: ${{ '{:,}'.format(v['value_2016']) }}</p>
+					<p>2016 Assessed Market Value: ${{ '{:,}'.format(v['value_2016']) }}</p>
 					<p>Comparable Properties: {{ v['count_match'] }}</p>
-					<p>Average Comparable Property Value: ${{ '{:,}'.format(v['avg_match']) }}</p>
+					<p>Average Comparable Market Value: ${{ '{:,}'.format(v['avg_match']) }}</p>
 					<p>Difference: ${{ '{:,}'.format(v['value_2016'] - v['avg_match']) }}</p>
 				</td>
 				<td class="align-middle">
