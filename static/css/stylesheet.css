@@ -37,6 +37,7 @@ iframe {
 	justify-content: center;
 	align-items: center;
 	width: 75%;
+	scroll-snap-align: center;
 }
 .spread-row {
 	padding-top: 2em;
