@@ -31,7 +31,6 @@ iframe {
 	justify-content: center;
 	align-items: center;
 	height: 100%;
-	scroll-snap-align: start;
 }
 .interior {
 	display: flex;
@@ -39,6 +38,7 @@ iframe {
 	justify-content: center;
 	align-items: center;
 	width: 75%;
+	scroll-snap-align: center;
 }
 .spread-row {
 	padding-top: 2em;
