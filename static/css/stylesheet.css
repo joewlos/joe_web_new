@@ -8,6 +8,7 @@ html {
 body {
 	font-family: "Rubik", Helvetica, sans-serif;
 	height: 100%;
+	scroll-snap-type: y proximity;
 }
 
 /* External Content with NavBar */
