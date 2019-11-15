@@ -296,3 +296,8 @@ path {
 .perf-no-pad {
 	margin: 0rem;
 }
+@media (max-width: 768px) {
+	.yes-no-row {
+		justify-content: center;
+	}
+}

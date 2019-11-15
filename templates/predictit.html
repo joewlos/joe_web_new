@@ -72,7 +72,7 @@
 				</div>
 			</div>
 			<div class="col-md-10">
-				<div class="d-flex flex-row flex-wrap">					
+				<div class="d-flex flex-row flex-wrap yes-no-row">					
 					<div class="predictit-item text-center {% if record['ContractType'] == 'Yes' %}predictit-yes{% else %}predictit-no{% endif %}">
 						<div class="hover-text"><i>Last Trade:</i><br>{{ record['DateExecuted'][:10] }}</div>
 						<h6 class="top-padding">{{ record['ContractName'] }}</h6>
