@@ -32,6 +32,7 @@ db.init_app(app)
 
 # Import the property model
 from models.property import Properties
+from scripts.predictit import History
 
 # Global variable with the info for the pages
 json_path = os.path.join(
@@ -99,15 +100,26 @@ def page(section, key):
 	data = info[section]['pages'][key]
 	title = data['page_name']
 
+	# Empty variables for assessment and predictit pages
+	assess = None
+	predictit = None 
+
 	# If this is the property assessment section, get the data from the model
-	assess = None 
 	if key == 'cook_county_assessment':
 		assess = Properties.get_overvalued()
-		from pprint import pprint
-		pprint(assess)
 
+	# If this is the predictit section, get the data from the folder
+	elif key == 'predictit':
+		predictit_path = os.path.join(
+			app.static_folder, 
+			'data', 
+			'TradeHistory.csv'
+		)
+		predictit = History(predictit_path, 50.00)
+
+	# Render the template
 	return render_template('page.html', 
-		data=data, title=title, assess=assess)
+		data=data, title=title, assess=assess, predictit=predictit)
 
 
 '''
@@ -117,7 +129,10 @@ EXECUTION IN TERMINAL
 if __name__ == '__main__':
 	extra_dirs = [
 		'templates',
-		'static'
+		'static',
+		'static/data',
+		'static/images',
+		'scripts'
 	]
 	extra_files = extra_dirs[:]
 
@@ -131,6 +146,6 @@ if __name__ == '__main__':
 
 	# Check if Heroku in environ before running
 	if 'ON_HEROKU' not in os.environ:
-		app.run(extra_files=extra_files)
+		app.run(extra_files=extra_files, debug=True)
 	else:
 		app.run()  # On Heroku

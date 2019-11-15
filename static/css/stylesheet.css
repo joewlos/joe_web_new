@@ -161,3 +161,138 @@ iframe {
 .pad-title {
 	padding-top: 2em;
 }
+
+/* PredictIt */
+.green {
+	color: green;
+}
+.red {
+	color: red;
+}
+.extra-margin {
+	margin-bottom: 1rem;
+}
+.updated {
+	margin-top: 1rem;
+	font-size: 0.75rem;
+}
+@media (max-width: 768px) {
+	.push-performance {
+		margin-top: 1rem;
+	}
+}
+path {
+  stroke-width: 2;
+  fill: none;
+}
+.axis path, .axis line {
+  fill: none;
+  stroke: gray;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+#lineDiv {
+	font-size: 0.8rem;
+}
+#barDiv {
+	font-size: 0.8rem;
+}
+.table-borderless td,
+.table-borderless thead th {
+	border: 0;
+	border-bottom: 0;
+}
+.toolTip {
+  position: absolute;
+  display: none;
+  min-width: 40px;
+  height: auto;
+  background: none repeat scroll 0 0 #ffffff;
+  border: 2px solid #089fba;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  font-size: 0.75rem;
+}
+.predictit-header {
+	margin-top: 1.5rem;
+}
+.predictit-item {
+	width: 8rem;
+	height: 8rem;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+	margin: 7.5px;
+}
+.predictit-yes {
+	background-color: #089fba;
+	color: white;
+	border-style: solid;
+    border-width: 2.5px;
+    border-color: #089fba;
+}
+.predictit-yes:hover {
+	color: #089fba;
+    background-color: white;
+    -webkit-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
+}
+.predictit-no {
+	background-color: #253b40;
+	color: white;
+	border-style: solid;
+    border-width: 2.5px;
+    border-color: #253b40;
+}
+.predictit-no:hover {
+	color: #253b40;
+    background-color: white;
+    -webkit-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
+}
+.hover-text {
+	display: none;
+	font-size: 0.5rem;
+}
+.predictit-item:hover div {
+	display: block;
+}
+.top-padding {
+	margin-top: 0.5rem;
+}
+.predictit-link {
+	color: #089fba;
+}
+.predictit-link:hover {
+	color: #089fba;
+}
+.predictit-table-border {
+	color: white;
+	background-color: #089fba;
+}
+.month-table {
+	font-size: 0.8rem;
+}
+.perf-content {
+	color: white;
+	margin-bottom: 0.5rem;
+	margin-top: 0.5rem;
+}
+.perf-row {
+	min-height: 8rem;
+	margin: 0.5rem;
+	background-color: #253b40;
+}
+.perf-num {
+	margin-left: 0rem;
+	margin-right: 0rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+.perf-no-pad {
+	margin: 0rem;
+}

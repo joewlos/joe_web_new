@@ -30,6 +30,14 @@
 				"text": "presevent.html",
 				"project_link": "http://presevent.com/",
 				"project_name": "Presevent Website"
+			},
+			"predictit": {
+				"page_name": "PredictIt",
+				"title": "Event Forecasting on PredictIt",
+				"subtitle": "Visualizing My $50 Portfolio's Performance with D3.js",
+				"title_image": "predictit.jpg",
+				"text": "predictit.html",
+				"full_page": true
 			}
 		}
 	},
