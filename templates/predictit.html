@@ -1,6 +1,6 @@
 <p><a href="https://predictit.com/" target="_blank">PredictIt</a> is an online prediction market, which allows users to buy "yes" or "no" contracts on the outcome of political events. Before the event occurs, owned contracts can be sold at a profit or a loss. After the event occurs, the prediction market resolves, and each winning contract receives $1.00.</p>
 <p>In February 2019, I created an account and decided to track the performance of my initial $50.00 deposit. While my own political opinions often align with my bets, I have tried to focus on buying undervalued contracts. Therefore, the data displayed here are not necessarily a reflection of my personal opinions.</p>
-<p>This page uses PredictIt's <a href="https://www.predictit.org/account/history" target="_blank">account history export</a> to find recent trades, <a href="https://pandas.pydata.org/" target="_blank">Pandas</a> to manipulate the data, and <a href="https://d3js.org/" target="_blank">D3.js</a> to display my results.</p>
+<p>This page uses PredictIt's <a href="https://www.predictit.org/account/history" target="_blank">account history export</a> to find my recent trades, <a href="https://pandas.pydata.org/" target="_blank">Pandas</a> to manipulate the data, and <a href="https://d3js.org/" target="_blank">D3.js</a> to display my results.</p>
 <hr>
 <!-- Row for the overall performance -->
 <div class="row align-items-center text-center">
@@ -52,12 +52,13 @@
 <!-- Rows for the current portfolio -->
 <div class="text-center">
 	<h5>Current Portfolio</h5>
-	<!-- Extra row for interation -->
+	<!-- Extra divs for interation -->
 	<div><div>
+<!-- Iterate using the namespace to check for new ros -->
 {% set ns = namespace(marketID=1) %}
 {% for record in predictit.contract_records %}
 	{% if record['MarketID'] != ns.marketID %}
-		<!-- End the Previous Div -->
+		<!-- End the previous div -->
 		</div></div></div>
 		<div class="row predictit-header">
 			<div class="col-md-12">
@@ -74,25 +75,26 @@
 			<div class="col-md-10">
 				<div class="d-flex flex-row flex-wrap yes-no-row">					
 					<div class="predictit-item text-center {% if record['ContractType'] == 'Yes' %}predictit-yes{% else %}predictit-no{% endif %}">
-						<div class="hover-text"><i>Last Trade:</i><br>{{ record['DateExecuted'][:10] }}</div>
+						<div class="hover-text"><i>My Last Trade:</i><br>{{ record['DateExecuted'][:10] }}</div>
 						<h6 class="top-padding">{{ record['ContractName'] }}</h6>
 						<h6>{{ record['CurrentShares'] }} {{ record['ContractType'] }} Shares</h6>
 						<div class="hover-text"><i>Total Traded:</i><br>${{ "%.2f"|format(record['AmtTraded']) }} | {{ record['Shares'] }} Shares</div>
 					</div>
 		{% set ns.marketID = record['MarketID'] %}
+	<!-- If the market is in the same id, just add a box -->
 	{% else %}
 					<div class="predictit-item text-center {% if record['ContractType'] == 'Yes' %}predictit-yes{% else %}predictit-no{% endif %}">
-						<div class="hover-text"><i>Last Trade:</i><br>{{ record['DateExecuted'][:10] }}</div>
+						<div class="hover-text"><i>My Last Trade:</i><br>{{ record['DateExecuted'][:10] }}</div>
 						<h6 class="top-padding">{{ record['ContractName'] }}</h6>
 						<h6>{{ record['CurrentShares'] }} {{ record['ContractType'] }} Shares</h6>
 						<div class="hover-text"><i>Total Traded:</i><br>${{ "%.2f"|format(record['AmtTraded']) }} | {{ record['Shares'] }} Shares</div>
 					</div>
 	{% endif %}
 {% endfor %}
-<!-- End the Previous Div -->
+<!-- End the iteration divs -->
 </div></div></div>
 <hr>
-<!-- Row for performance by month, current allocation, and best and worst bets -->
+<!-- Row for performance and volume -->
 <div class="row">
 	<div class='col-md-6'>
 		<h5 class="text-center extra-margin">Monthly and Total Return<br>by Month</h5>
@@ -125,7 +127,7 @@
 	</div>
 </div>
 <hr>
-<!-- Best and Worst Market Performances -->
+<!-- Best and worst market performances -->
 <div class="row">
 	<div class="col-md-6">
 		<h5 class="text-center extra-margin">Best Market Performances by Value!</h5>
@@ -180,282 +182,19 @@
 </div>
 <!-- D3 for visualizations -->
 <script src="http://d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/predictit.js') }}"></script>
 <script>
-	// Parsers for the data
-	var parseDateLong = d3.time.format("%Y-%m-%d %H:%M").parse;
-	var parseDateShort = d3.time.format("%Y-%m").parse;
-	var bisectDate = d3.bisector(function(d) { return d.DateExecuted; }).left;
-
-	// Function for drawing the line graph
-	function lineGraph(data) {
-		var data = {{ predictit.line_data | safe }};
-
-		// Set the dimensions of the svg
-		var margin = {top: 30, right: 50, bottom: 30, left: 50};
-		var svgWidth = 1000;
-		var svgHeight = 333;
-		var graphWidth = svgWidth - margin.left - margin.right;
-		var graphHeight = svgHeight - margin.top - margin.bottom;
-
-		// Define the x and y axis
-		var x = d3.time.scale().range([0, graphWidth]);
-		var y = d3.scale.linear().range([graphHeight, 0]);
-		var xAxis = d3.svg.axis()
-			.scale(x).orient("bottom").ticks(12);
-		var yAxis = d3.svg.axis()
-			.scale(y).orient("left").ticks(5)
-			.tickFormat( function(d) { return "$" + d } );
-
-		// Add the line for total
-		var totalLine = d3.svg.line()
-			.x(function(d) { return x(d.DateExecuted); })
-			.y(function(d) { return y(d.Total); });
-
-		// Add the line for starting cash
-		var startLine = d3.svg.line()
-			.x(function(d) { return x(d.DateExecuted); })
-			.y(function(d) { return y(d.Start); });
-
-		// Add the canvas to the HTML
-		var svg = d3.select("#lineDiv")
-			.append("svg")
-				.attr('width', svgWidth)
-				.attr('height', svgHeight)
-				.call(responsivefy)
-			.append("g")
-				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-		// Add the focus to the chart
-		var focus = svg.append("g")
-			.style("display", "none");
-
-		// Parse the data
-		data.forEach(function(d) {
-			d.DateExecuted = parseDateLong(d.DateExecuted);
-			d.Total = +d.Total;
-			d.Start = +50;
-		});
-
-		// Scale the range of the data
-		x.domain(d3.extent(data, function(d) { return d.DateExecuted; }));
-		y.domain([d3.min(data, function(d) {
-			return Math.round((Math.min(d.Total) - 10) / 10) * 10 }),
-		d3.max(data, function(d) {
-			return Math.round((Math.max(d.Total) + 10) / 10) * 10 })]);
-	
-		// Add the total as a blue line
-		svg.append("path")
-			.style("stroke", "#089fba")
-			.style("fill", "none")
-			.attr("class", "line")
-			.attr("d", totalLine(data));
-
-		// Add the start as a dashed line
-		svg.append("path")
-			.style("stroke", "#253b40")
-			.style("stroke-dasharray", ("5, 10"))
-			.attr("class", "line")
-			.attr("d", startLine(data));
-
-		// Add the x axis
-		svg.append("g")
-			.attr("class", "x axis")
-			.attr("transform", "translate(0," + graphHeight + ")")
-			.call(xAxis);
-		
-		// Add the y axis
-		svg.append("g")
-			.attr("class", "y axis")
-			.call(yAxis);
-
-		// Append the circle at the intersection               
-		focus.append("circle")                                 
-			.attr("class", "y")                                
-			.style("fill", "none")                             
-			.style("stroke", "#089fba")
-			.style("stroke-width", "2px")                        
-			.attr("r", 4);                                     
-
-		// Place the text value at the intersection
-		focus.append("text")
-			.attr("class", "y1")
-			.style("stroke", "white")
-			.style("stroke-width", "3.5px")
-			.style("opacity", 0.8)
-			.attr("dx", 8)
-			.attr("dy", "1rem");
-		focus.append("text")
-			.attr("class", "y2")
-			.attr("dx", 8)
-			.attr("dy", "1rem");
-
-		// Append the rectangle to capture mouse               
-		svg.append("rect")                                     
-			.attr("width", graphWidth)                              
-			.attr("height", graphHeight)                            
-			.style("fill", "none")                             
-			.style("pointer-events", "all")                    
-			.on("mouseover", function() { focus.style("display", null); })
-			.on("mouseout", function() { focus.style("display", "none"); })
-			.on("mousemove", mousemove);                       
-
-		// Function for capturing mouse movement
-		function mousemove() {                                 
-			var x0 = x.invert(d3.mouse(this)[0]),             
-				i = bisectDate(data, x0, 1),   
-				d0 = data[i - 1],                          
-				d1 = data[i],                              
-				d = x0 - d0.DateExecuted > d1.DateExecuted - x0 ? d1 : d0;   
-
-			// Add the circle and text
-			focus.select("circle.y")
-				.attr("transform", "translate(" + x(d.DateExecuted) + "," + y(d.Total) + ")");
-			focus.select("text.y1")
-				.attr("transform", "translate(" + x(d.DateExecuted) + "," + y(d.Total) + ")")
-				.text("$" + d.Total.toFixed(2));
-			focus.select("text.y2")
-				.attr("transform", "translate(" + x(d.DateExecuted) + "," + y(d.Total) + ")")
-				.text("$" + d.Total.toFixed(2));
-		} 
-
-		// Make the graph size responsive - https://benclinkinbeard.com/d3tips/
-		function responsivefy(svg) {
-
-			// Get the aspect ratio
-			const container = d3.select(svg.node().parentNode),
-			width = parseInt(svg.style('width'), 10),
-			height = parseInt(svg.style('height'), 10),
-			aspect = width / height;
-
-			// Set viewbox to initial size
-			svg.attr('viewBox', `0 0 ${width} ${height}`)
-				.attr('preserveAspectRatio', 'xMinYMid')
-				.call(resize);
-
-			// Add a listener so the chart will be resized
-			d3.select(window).on(
-				'resize.' + container.attr('id'), 
-				resize
-			);
-
-			// Function to resize the chart
-			function resize() {
-				const w = parseInt(container.style('width'));
-				svg.attr('width', w);
-				svg.attr('height', Math.round(w / aspect));
-			}
-		}
-	}
-
-	// Function for drawing the line graph
-	function barGraph(data) {
-		var data = {{ predictit.month_data | safe }};
-
-		// Set the dimensions of the svg using the month table so they are the same size
-		var margin = {top: 30, right: 50, bottom: 30, left: 50};
-		var svgWidth = parseInt(d3.select(".month-table").style("width"));
-		var svgHeight = parseInt(d3.select(".month-table").style("height"));
-		var graphWidth = svgWidth - margin.left - margin.right;
-		var graphHeight = svgHeight - margin.top - margin.bottom;
-
-		// Define the x and y axis
-		var x = d3.time.scale().range([0, graphWidth]);
-		var yPerf = d3.scale.linear().range([graphHeight, 0]);
-		var yVolume = d3.scale.linear().range([graphHeight, 0]);
-		var xAxis = d3.svg.axis()
-			.scale(x).orient("bottom").ticks(3);
-		var yAxisPerf = d3.svg.axis()
-			.scale(yPerf).orient("right").ticks(8)
-			.tickFormat( function(d) { return d + "%" } );
-		var yAxisVolume = d3.svg.axis()
-			.scale(yVolume).orient("left").ticks(8)
-			.tickFormat( function(d) { return "$" + d } );
-
-		// Add the line for performance
-		var performanceLine = d3.svg.line()
-			.x(function(d) { return x(d.Month); })
-			.y(function(d) { return yPerf(d.MonthReturn); });
-
-		// Remove the svg if it exists
-		d3.select("#barGraph").remove();
-
-		// Add the canvas to the HTML
-		var svg = d3.select("#barDiv")
-			.append("svg")
-				.attr('width', svgWidth)
-				.attr('height', svgHeight)
-				.attr('id', 'barGraph')
-			.append("g")
-				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-		// Parse the data
-		data.forEach(function(d) {
-			d.Month = parseDateShort(d.Month);
-			d.MonthReturn = +d.MonthReturn * 100.0;
-			d.Volume = +d.Volume;
-		});
-
-		// Scale the range of the data
-		x.domain(d3.extent(data, function(d) { return d.Month; }));
-		yPerf.domain([d3.min(data, function(d) {
-			return Math.round((Math.min(d.MonthReturn) - 10) / 10) * 10 }),
-		d3.max(data, function(d) {
-			return Math.round((Math.max(d.MonthReturn) + 15) / 10) * 10 })]);
-		yVolume.domain([d3.min(data, function(d) {
-			return 0 }),
-		d3.max(data, function(d) {
-			return Math.round((Math.max(d.Volume) + 25) / 10) * 10 })]);
-	
-		// Add a tooltip to the graph
-		var tooltip = d3.select("body").append("div").attr("class", "toolTip");
-
-		// Add bars as blue rects
-		svg.selectAll("bar")
-			.data(data)
-			.enter().append("rect")
-				.style("fill", "#089fba")
-				.attr("x", function(d) { return x(d.Month); })
-				.attr("width", 10)
-				.attr("transform", "translate(-5,0)")
-				.attr("y", function(d) { return yVolume(d.Volume); })
-				.attr("height", function(d) { return graphHeight - yVolume(d.Volume); })
-				.on("mousemove", function(d){
-            		tooltip.style("left", d3.event.pageX - 50 + "px")
-              			.style("top", d3.event.pageY - 70 + "px")
-              			.style("display", "inline-block")
-              			.html("Volume: $" + Math.round(d.Volume) + "<br>Return: " +
-              				Math.round(d.MonthReturn,2) + "%");
-        		})
-    			.on("mouseout", function(d){ tooltip.style("display", "none");});
-
-		// Add the perf as a grey line
-		svg.append("path")
-			.style("stroke", "#253b40")
-			.style("fill", "none")
-			.attr("class", "line")
-			.attr("d", performanceLine(data));
-
-		// Add the x axis
-		svg.append("g")
-			.attr("class", "x axis")
-			.attr("transform", "translate(0," + graphHeight + ")")
-			.call(xAxis);
-		
-		// Add the y axis
-		svg.append("g")
-			.attr("class", "y axis")
-			.attr("transform", "translate(" + (graphWidth + 5) + " , 0)")	
-			.call(yAxisPerf);
-		svg.append("g")
-			.attr("class", "y axis")
-			.attr("transform", "translate(-5 , 0)")	
-			.call(yAxisVolume);
-	}
+	// Get the data
+	var lineFlask = {{ predictit.line_data | safe }};
+	var barFlask = {{ predictit.month_data | safe }};
 
 	// Draw the graphs
-	lineGraph();
-	barGraph();
+	lineGraph(lineFlask);
+	barGraph(barFlask);
 
 	// Redraw the bar graph based on the size of the window
-	d3.select(window).on('resize', barGraph);
+	d3.select(window).on('resize', function () { 
+		var resizeBarFlask = {{ predictit.month_data | safe }};
+		barGraph(resizeBarFlask); 
+	});
 </script>

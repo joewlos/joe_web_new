@@ -36,7 +36,7 @@ class History:
 		df['Total'] = df['Invested'] + df['Cash'] 
 		df['Volume'] = df['Shares'] * df['Price']
 
-		# Set the variables
+		# Set the variables for total performance
 		invested = df['Invested'][0]
 		cash = df['Cash'][0]
 		total = df['Total'][0]
@@ -67,13 +67,13 @@ class History:
 		volume_df = df.groupby('Month')['Volume'].sum().reset_index()
 		month_df = pd.merge(month_df, volume_df, on='Month', how='left')
 
-		# Send to records without the filler row
+		# Send to records without the filler row and only take the last year
 		month_df.drop(max(month_df.index), inplace=True)
 		month_df = month_df.head(12)
 		month_records = month_df.to_dict(orient='records')
 		month_data = json.dumps(month_records, indent=2)
 
-		# Find out if the contract is binary
+		# Find out if a contract is binary
 		df['MarketID'] = df['URL'].str.split('/').str[-1]
 		binary_df = df.loc[df['ContractName'].isin(['Yes', 'No'])]
 		binary_df['Binary'] = True
