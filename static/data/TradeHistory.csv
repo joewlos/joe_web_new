@@ -1,4 +1,7 @@
 DateExecuted,Type,MarketName,ContractName,Shares,Price,ProfitLoss,Fees,Risk,CreditDebit,URL
+12/10/2019 9:25 PM,Buy No,Who will win the 2020 Iowa Democratic caucuses?,Buttigieg,5,$0.74,$0.00,$0.000,$1.170,$1.170,https://www.predictit.org/markets/detail/5241
+12/10/2019 9:23 PM,Buy Yes,Will Donald Trump be impeached by year-end 2019?,Yes,3,$0.83,$0.00,$0.000,($2.490),($2.490),https://www.predictit.org/markets/detail/4319
+12/10/2019 9:19 PM,Buy Yes,Will another Democrat drop out before the Dec.19 debate?,Yes,3,$0.41,$0.00,$0.000,($1.230),($1.230),https://www.predictit.org/markets/detail/6206
 12/10/2019 9:12 PM,Sell No,Who will win the 2020 Iowa Democratic caucuses?,Gabbard,5,$0.99,$0.00,$0.000,($0.030),($0.030),https://www.predictit.org/markets/detail/5241
 12/10/2019 3:06 PM,Sell Yes,Will Andrew Yang participate in the December Democratic debate?,Will-Yang-participate-in-Dec-debate,15,$0.98,$8.40,($0.840),$6.300,$13.860,https://www.predictit.org/markets/detail/6120
 12/10/2019 3:00 PM,Sell Yes,How many candidates will participate in December Democratic debate?,6-,8,$0.05,($3.60),$0.000,$4.000,$0.400,https://www.predictit.org/markets/detail/6123
