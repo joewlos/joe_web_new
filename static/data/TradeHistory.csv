@@ -1,4 +1,32 @@
 DateExecuted,Type,MarketName,ContractName,Shares,Price,ProfitLoss,Fees,Risk,CreditDebit,URL
+12/20/2019 8:53 PM,Sell Yes,Who will win the 2020 Democratic presidential nomination?,Klobuchar,10,$0.06,($0.10),$0.000,$0.700,$0.600,https://www.predictit.org/markets/detail/3633
+12/20/2019 8:53 PM,Sell Yes,Who will win the 2020 Democratic presidential nomination?,Klobuchar,10,$0.06,$0.10,($0.010),$0.500,$0.590,https://www.predictit.org/markets/detail/3633
+12/19/2019 9:18 AM,Sell Yes,"Will Benjamin Netanyahu be prime minister of Israel on Dec. 31, 2020?",Netanyahu-Israeli-PM-on-12-31-20,1,$0.69,$0.09,($0.009),$0.600,$0.681,https://www.predictit.org/markets/detail/6238
+12/19/2019 9:09 AM,Buy Yes,"Will Benjamin Netanyahu be prime minister of Israel on Dec. 31, 2020?",Yes,1,$0.60,$0.00,$0.000,($0.600),($0.600),https://www.predictit.org/markets/detail/6238
+12/18/2019 5:52 PM,Sell Yes,Will Tulsi Gabbard vote Nay on any article of impeachment by 12/30?,Gabbard-Nay-on-impeachment-by-12-30,9,$0.44,$0.18,($0.018),$3.780,$3.942,https://www.predictit.org/markets/detail/6224
+12/18/2019 5:28 PM,Sell Yes,Will Tulsi Gabbard vote Nay on any article of impeachment by 12/30?,Yes,9,$0.44,($1.06),$0.000,$5.020,$3.960,https://www.predictit.org/markets/detail/6224
+12/18/2019 5:28 PM,Sell Yes,Will Tulsi Gabbard vote Nay on any article of impeachment by 12/30?,Yes,1,$0.44,$0.02,($0.002),$0.420,$0.438,https://www.predictit.org/markets/detail/6224
+12/18/2019 5:16 PM,Sell Yes,Will Tulsi Gabbard vote Nay on any article of impeachment by 12/30?,Yes,1,$0.44,($0.09),$0.000,$0.530,$0.440,https://www.predictit.org/markets/detail/6224
+12/18/2019 1:37 PM,Buy Yes,Will Tulsi Gabbard vote Nay on any article of impeachment by 12/30?,Yes,10,$0.42,$0.00,$0.000,($4.200),($4.200),https://www.predictit.org/markets/detail/6224
+12/18/2019 11:18 AM,Sell Yes,Who will speak the least at the December Democratic debate?,Yang,10,$0.43,$0.20,($0.020),$4.100,$4.280,https://www.predictit.org/markets/detail/6220
+12/18/2019 11:01 AM,Sell Yes,Who will speak the least at the December Democratic debate?,Steyer,5,$0.42,$0.50,($0.050),$1.600,$2.050,https://www.predictit.org/markets/detail/6220
+12/18/2019 11:01 AM,Sell Yes,Who will speak the least at the December Democratic debate?,Steyer,5,$0.42,$0.15,($0.015),$1.950,$2.085,https://www.predictit.org/markets/detail/6220
+12/18/2019 10:42 AM,Sell Yes,Will Tulsi Gabbard vote Nay on any article of impeachment by 12/30?,Yes,5,$0.63,$0.50,($0.050),$2.650,$3.100,https://www.predictit.org/markets/detail/6224
+12/18/2019 9:10 AM,Buy Yes,Will Tulsi Gabbard vote Nay on any article of impeachment by 12/30?,Yes,2,$0.58,$0.00,$0.000,($1.160),($1.160),https://www.predictit.org/markets/detail/6224
+12/18/2019 9:09 AM,Buy Yes,Will Tulsi Gabbard vote Nay on any article of impeachment by 12/30?,Yes,3,$0.58,$0.00,$0.000,($1.740),($1.740),https://www.predictit.org/markets/detail/6224
+12/17/2019 6:59 PM,Buy Yes,Will Tulsi Gabbard vote Nay on any article of impeachment by 12/30?,Yes,5,$0.53,$0.00,$0.000,($2.650),($2.650),https://www.predictit.org/markets/detail/6224
+12/17/2019 6:43 PM,Sell Yes,Will Tulsi Gabbard vote Nay on any article of impeachment by 12/30?,Yes,5,$0.57,$0.20,($0.020),$2.650,$2.830,https://www.predictit.org/markets/detail/6224
+12/17/2019 6:40 PM,Buy Yes,Will Tulsi Gabbard vote Nay on any article of impeachment by 12/30?,Yes,10,$0.53,$0.00,$0.000,($5.300),($5.300),https://www.predictit.org/markets/detail/6224
+12/17/2019 6:13 PM,Sell Yes,Will Tulsi Gabbard vote Nay on any article of impeachment by 12/30?,Gabbard-Nay-on-impeachment-by-12-30,10,$0.60,$1.00,($0.100),$5.000,$5.900,https://www.predictit.org/markets/detail/6224
+12/17/2019 6:09 PM,Buy Yes,Will Tulsi Gabbard vote Nay on any article of impeachment by 12/30?,Yes,10,$0.50,$0.00,$0.000,($5.000),($5.000),https://www.predictit.org/markets/detail/6224
+12/17/2019 6:07 PM,Sell Yes,Will Tulsi Gabbard vote Nay on any article of impeachment by 12/30?,Gabbard-Nay-on-impeachment-by-12-30,3,$0.54,$0.12,($0.012),$1.500,$1.608,https://www.predictit.org/markets/detail/6224
+12/17/2019 6:07 PM,Sell Yes,Will Tulsi Gabbard vote Nay on any article of impeachment by 12/30?,Yes,2,$0.54,$0.08,($0.008),$1.000,$1.072,https://www.predictit.org/markets/detail/6224
+12/17/2019 6:01 PM,Buy Yes,Will Tulsi Gabbard vote Nay on any article of impeachment by 12/30?,Yes,3,$0.50,$0.00,$0.000,($1.500),($1.500),https://www.predictit.org/markets/detail/6224
+12/17/2019 5:59 PM,Buy Yes,Will Tulsi Gabbard vote Nay on any article of impeachment by 12/30?,Yes,2,$0.50,$0.00,$0.000,($1.000),($1.000),https://www.predictit.org/markets/detail/6224
+12/15/2019 5:48 PM,Buy Yes,Who will speak the least at the December Democratic debate?,Steyer,5,$0.32,$0.00,$0.000,($1.600),($1.600),https://www.predictit.org/markets/detail/6220
+12/15/2019 10:31 AM,Sell No,Who will win the 2020 Democratic presidential nomination?,Gabbard,5,$0.98,$0.10,($0.010),($0.160),($0.070),https://www.predictit.org/markets/detail/3633
+12/15/2019 10:25 AM,Buy Yes,Who will speak the least at the December Democratic debate?,Steyer,5,$0.39,$0.00,$0.000,($1.950),($1.950),https://www.predictit.org/markets/detail/6220
+12/15/2019 10:25 AM,Buy Yes,Who will speak the least at the December Democratic debate?,Yang,10,$0.41,$0.00,$0.000,($4.100),($4.100),https://www.predictit.org/markets/detail/6220
 12/14/2019 12:48 AM,Sell Yes,Will another Democrat drop out before the Dec.19 debate?,Another-drop-out-before-Dec-Dem-debate,4,$0.34,$0.04,($0.004),$1.320,$1.356,https://www.predictit.org/markets/detail/6206
 12/13/2019 10:09 PM,Sell Yes,Will another Democrat drop out before the Dec.19 debate?,Yes,1,$0.34,$0.01,($0.001),$0.330,$0.339,https://www.predictit.org/markets/detail/6206
 12/13/2019 1:18 PM,Buy Yes,Will another Democrat drop out before the Dec.19 debate?,Yes,5,$0.33,$0.00,$0.000,($1.650),($1.650),https://www.predictit.org/markets/detail/6206
