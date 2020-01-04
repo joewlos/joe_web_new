@@ -29,6 +29,9 @@ class History:
 		df = clean_df(pd.read_csv(path, parse_dates=['DateExecuted']), cols)
 		df['DateExecuted'] = df['DateExecuted'].dt.strftime('%Y-%m-%d %H:%M')
 
+		# Encode for utf-8
+		df['MarketName'] = df['MarketName'].str.encode('utf-8')
+
 		# Reverse by the date and add a portfolio value and volume column
 		df.sort_index(ascending=False, inplace=True)
 		df['Invested'] = df['Risk'].cumsum().abs().round(2)
