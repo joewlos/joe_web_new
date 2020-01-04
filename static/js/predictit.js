@@ -18,7 +18,8 @@ function lineGraph(fromFlask) {
 	var x = d3.time.scale().range([0, graphWidth]);
 	var y = d3.scale.linear().range([graphHeight, 0]);
 	var xAxis = d3.svg.axis()
-		.scale(x).orient("bottom").ticks(12);
+		.scale(x).orient("bottom").ticks(12)
+		.tickFormat(d3.time.format("%B"));
 	var yAxis = d3.svg.axis()
 		.scale(y).orient("left").ticks(5)
 		.tickFormat( function(d) { return "$" + d } );
@@ -180,7 +181,8 @@ function barGraph(fromFlask) {
 	var yPerf = d3.scale.linear().range([graphHeight, 0]);
 	var yVolume = d3.scale.linear().range([graphHeight, 0]);
 	var xAxis = d3.svg.axis()
-		.scale(x).orient("bottom").ticks(3);
+		.scale(x).orient("bottom").ticks(3)
+		.tickFormat(d3.time.format("%B"));
 	var yAxisPerf = d3.svg.axis()
 		.scale(yPerf).orient("right").ticks(8)
 		.tickFormat( function(d) { return d + "%" } );
