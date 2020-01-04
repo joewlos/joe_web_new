@@ -30,7 +30,7 @@ class History:
 		df['DateExecuted'] = df['DateExecuted'].dt.strftime('%Y-%m-%d %H:%M')
 
 		# Encode for utf-8
-		df['MarketName'] = df['MarketName'].str.encode('utf-8')
+		df['MarketName'] = df['MarketName'].map(lambda x: unicode(x))
 
 		# Reverse by the date and add a portfolio value and volume column
 		df.sort_index(ascending=False, inplace=True)
