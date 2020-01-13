@@ -1,4 +1,51 @@
 DateExecuted,Type,MarketName,ContractName,Shares,Price,ProfitLoss,Fees,Risk,CreditDebit,URL
+1/12/2020 10:59 PM,Sell No,Who will win the 2020 Democratic presidential nomination?,Bloomberg,5,$0.89,($0.05),$0.000,($0.450),($0.500),https://www.predictit.org/markets/detail/3633
+1/12/2020 3:05 PM,Buy Yes,Who will win the 2020 Iowa Democratic caucuses?,Warren,5,$0.12,$0.00,$0.000,($0.600),($0.600),https://www.predictit.org/markets/detail/5241
+1/12/2020 7:58 AM,Sell No,How many Democrats will have dropped out by January 31?,15,8,$0.60,$0.16,($0.016),$4.640,$4.784,https://www.predictit.org/markets/detail/6266
+1/11/2020 2:58 PM,Sell No,How many Democrats will have dropped out by January 31?,15,2,$0.63,$0.08,($0.008),$1.180,$1.252,https://www.predictit.org/markets/detail/6266
+1/10/2020 5:14 PM,Buy No,How many Democrats will have dropped out by January 31?,15,8,$0.58,$0.00,$0.000,($4.640),($4.640),https://www.predictit.org/markets/detail/6266
+1/10/2020 3:37 PM,Sell No,How many Democrats will have dropped out by January 31?,15,7,$0.61,($0.09),$0.000,$4.360,$4.270,https://www.predictit.org/markets/detail/6266
+1/10/2020 3:37 PM,Sell No,How many Democrats will have dropped out by January 31?,15,3,$0.61,$0.06,($0.006),$1.770,$1.824,https://www.predictit.org/markets/detail/6266
+1/10/2020 3:34 PM,Sell No,Will Andrew Yang win at least one primary?,Yang-wins-at-least-one-primary,3,$0.94,$0.21,($0.021),$2.610,$2.799,https://www.predictit.org/markets/detail/6112
+1/10/2020 2:16 PM,Buy No,How many Democrats will have dropped out by January 31?,15,5,$0.59,$0.00,$0.000,($2.950),($2.950),https://www.predictit.org/markets/detail/6266
+1/10/2020 2:15 PM,Sell No,Will Andrew Yang win at least one primary?,No,1,$0.94,$0.07,($0.007),$0.870,$0.933,https://www.predictit.org/markets/detail/6112
+1/10/2020 1:55 PM,Sell No,How many Democrats will have dropped out by January 31?,15,3,$0.63,($0.03),$0.000,$1.920,$1.890,https://www.predictit.org/markets/detail/6266
+1/10/2020 1:33 PM,Buy No,How many Democrats will have dropped out by January 31?,15,6,$0.62,$0.00,$0.000,($3.720),($3.720),https://www.predictit.org/markets/detail/6266
+1/10/2020 1:26 PM,Sell No,How many Democrats will have dropped out by January 31?,15,6,$0.64,$0.03,($0.003),$3.810,$3.837,https://www.predictit.org/markets/detail/6266
+1/10/2020 1:17 PM,Buy No,How many Democrats will have dropped out by January 31?,15,8,$0.64,$0.00,$0.000,($5.120),($5.120),https://www.predictit.org/markets/detail/6266
+1/10/2020 1:17 PM,Buy No,How many Democrats will have dropped out by January 31?,15,1,$0.63,$0.00,$0.000,($0.630),($0.630),https://www.predictit.org/markets/detail/6266
+1/10/2020 1:17 PM,Buy No,How many Democrats will have dropped out by January 31?,15,1,$0.62,$0.00,$0.000,($0.620),($0.620),https://www.predictit.org/markets/detail/6266
+1/10/2020 5:17 AM,Sell No,Will Andrew Yang win at least one primary?,No,1,$0.94,$0.07,($0.007),$0.870,$0.933,https://www.predictit.org/markets/detail/6112
+1/09/2020 11:29 PM,Sell No,Will Michael Bloomberg win at least one primary?,Bloomberg-wins-at-least-one-primary,5,$0.81,$0.05,($0.005),$4.000,$4.045,https://www.predictit.org/markets/detail/6116
+1/09/2020 8:03 PM,Sell No,How many Democrats will have dropped out by January 31?,14-or-fewer,3,$0.70,$0.12,($0.012),$1.980,$2.088,https://www.predictit.org/markets/detail/6266
+1/09/2020 8:01 PM,Sell No,How many Democrats will have dropped out by January 31?,14-or-fewer,2,$0.70,$0.08,($0.008),$1.320,$1.392,https://www.predictit.org/markets/detail/6266
+1/09/2020 6:30 PM,Sell No,Which of these 13 members of Trump’s Cabinet will leave next?,Pompeo,9,$0.85,$0.45,($0.045),$7.200,$7.605,https://www.predictit.org/markets/detail/6199
+1/09/2020 12:58 PM,Buy No,Who will win the 2020 Democratic presidential nomination?,Bloomberg,5,$0.90,$0.00,$0.000,$0.450,$0.450,https://www.predictit.org/markets/detail/3633
+1/09/2020 12:33 PM,Buy No,Will Michael Bloomberg win at least one primary?,No,5,$0.80,$0.00,$0.000,($4.000),($4.000),https://www.predictit.org/markets/detail/6116
+1/09/2020 11:26 AM,Sell No,Who will win the 2020 New Hampshire Democratic primary?,Sanders,5,$0.45,$0.35,($0.035),$1.900,$2.215,https://www.predictit.org/markets/detail/5344
+1/09/2020 11:26 AM,Sell No,Who will win the 2020 New Hampshire Democratic primary?,Sanders,10,$0.45,$0.40,($0.040),$4.100,$4.460,https://www.predictit.org/markets/detail/5344
+1/09/2020 11:15 AM,Sell No,Who will win the 2020 New Hampshire Democratic primary?,Sanders,10,$0.45,$0.20,($0.020),$4.300,$4.480,https://www.predictit.org/markets/detail/5344
+1/08/2020 10:08 PM,Sell No,Which of these 13 members of Trump’s Cabinet will leave next?,Pompeo,1,$0.85,$0.05,($0.005),$0.800,$0.845,https://www.predictit.org/markets/detail/6199
+1/08/2020 6:06 PM,Buy Yes,Who will win the 2020 Democratic presidential nomination?,Warren,5,$0.11,$0.00,$0.000,($0.550),($0.550),https://www.predictit.org/markets/detail/3633
+1/07/2020 3:49 PM,Sell No,Who will win the 2020 Democratic presidential nomination?,Bloomberg,4,$0.91,$0.16,($0.016),($0.468),($0.324),https://www.predictit.org/markets/detail/3633
+1/07/2020 3:49 PM,Sell No,Who will win the 2020 Democratic presidential nomination?,Bloomberg,1,$0.91,$0.04,($0.004),($0.117),($0.081),https://www.predictit.org/markets/detail/3633
+1/07/2020 12:29 PM,Buy No,Who will win the 2020 New Hampshire Democratic primary?,Sanders,5,$0.38,$0.00,$0.000,($1.900),($1.900),https://www.predictit.org/markets/detail/5344
+1/06/2020 10:42 PM,Buy No,Who will win the 2020 New Hampshire Democratic primary?,Sanders,5,$0.40,$0.00,$0.000,($2.000),($2.000),https://www.predictit.org/markets/detail/5344
+1/06/2020 6:29 PM,Sell Yes,Which of these 13 members of Trump’s Cabinet will leave next?,Azar,5,$0.13,$0.10,($0.010),$0.550,$0.640,https://www.predictit.org/markets/detail/6199
+1/06/2020 6:28 PM,Sell No,Will Mike Pompeo file to run for Senate by Mar. 1?,Pompeo-to-run-for-Senate-by-3-1,5,$0.95,$0.30,($0.030),$4.450,$4.720,https://www.predictit.org/markets/detail/6036
+1/06/2020 6:09 PM,Sell No,Will Mike Pompeo file to run for Senate by Mar. 1?,No,20,$0.95,$1.25,($0.125),$17.750,$18.875,https://www.predictit.org/markets/detail/6036
+1/06/2020 6:06 PM,Buy No,Will Mike Pompeo file to run for Senate by Mar. 1?,No,20,$0.89,$0.00,$0.000,($17.800),($17.800),https://www.predictit.org/markets/detail/6036
+1/06/2020 6:00 PM,Buy No,Will Mike Pompeo file to run for Senate by Mar. 1?,No,5,$0.88,$0.00,$0.000,($4.400),($4.400),https://www.predictit.org/markets/detail/6036
+1/06/2020 5:59 PM,Buy Yes,Which of these 13 members of Trump’s Cabinet will leave next?,Azar,5,$0.11,$0.00,$0.000,($0.550),($0.550),https://www.predictit.org/markets/detail/6199
+1/06/2020 5:58 PM,Buy No,Which of these 13 members of Trump’s Cabinet will leave next?,Pompeo,10,$0.80,$0.00,$0.000,($8.000),($8.000),https://www.predictit.org/markets/detail/6199
+1/06/2020 5:57 PM,Sell Yes,Which of these 13 members of Trump’s Cabinet will leave next?,Pompeo,4,$0.33,($1.56),$0.000,$2.880,$1.320,https://www.predictit.org/markets/detail/6199
+1/06/2020 5:57 PM,Sell Yes,Which of these 13 members of Trump’s Cabinet will leave next?,Pompeo,5,$0.35,($1.85),$0.000,$3.600,$1.750,https://www.predictit.org/markets/detail/6199
+1/06/2020 5:57 PM,Sell Yes,Which of these 13 members of Trump’s Cabinet will leave next?,Pompeo,1,$0.36,($0.36),$0.000,$0.720,$0.360,https://www.predictit.org/markets/detail/6199
+1/06/2020 2:55 PM,Buy No,Who will win the 2020 New Hampshire Democratic primary?,Sanders,10,$0.42,$0.00,$0.000,($4.200),($4.200),https://www.predictit.org/markets/detail/5344
+1/06/2020 2:40 PM,Buy No,Who will win the 2020 New Hampshire Democratic primary?,Sanders,5,$0.44,$0.00,$0.000,($2.200),($2.200),https://www.predictit.org/markets/detail/5344
+1/06/2020 9:51 AM,Sell Yes,Who will win the 2020 Iowa Democratic caucuses?,Klobuchar,10,$0.05,$0.20,($0.020),$0.300,$0.480,https://www.predictit.org/markets/detail/5241
+1/04/2020 5:00 PM,Sell Yes,Will Tom Steyer qualify for the January Democratic debate?,Will-Steyer-qualify-for-the-Jan-debate,1,$0.16,$0.06,($0.006),$0.100,$0.154,https://www.predictit.org/markets/detail/6246
+1/04/2020 5:00 PM,Sell Yes,Will Tom Steyer qualify for the January Democratic debate?,Yes,4,$0.16,$0.24,($0.024),$0.400,$0.616,https://www.predictit.org/markets/detail/6246
 1/03/2020 3:19 PM,Sell No,How many candidates will qualify for the January Democratic debate?,5,5,$0.21,$0.05,($0.005),$1.000,$1.045,https://www.predictit.org/markets/detail/6243
 1/03/2020 3:09 PM,Sell No,How many Democrats will have dropped out by January 31?,14-or-fewer,3,$0.92,$0.78,($0.078),$1.980,$2.682,https://www.predictit.org/markets/detail/6266
 1/03/2020 12:13 PM,Buy No,How many candidates will qualify for the January Democratic debate?,5,5,$0.20,$0.00,$0.000,($1.000),($1.000),https://www.predictit.org/markets/detail/6243
